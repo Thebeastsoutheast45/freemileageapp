@@ -1,0 +1,40 @@
+{% extends 'mileage/base.html' %}
+
+        
+        {% block content %} 
+
+
+
+      <center>
+        <div class="card" style="width: 18rem;">
+
+        <header class="w3-container w3-light-grey">
+            <h3>Vamos the Mileage App</h3>
+           
+        </header>
+        
+        <div class="w3-container">
+            <p>Welcome: {{ user.username }}</p>
+          <hr>
+     
+          <h4>Your Total Miles: {{ mileage_total }}</h4>
+          <p>Date: {% now "SHORT_DATETIME_FORMAT" %}</p>
+        </div>
+        
+      
+        <a type="button" class="btn btn-warning" href="{% url 'create' %}">+ Add Mileage</a>
+        </div>
+        <br>
+        <br>
+        <br>
+
+
+ 
+        <h4>Recent Miles added:</h4>
+        {% for x in newest_miles %}
+        <div class="w3-container">
+        <h4>{{x.miles}}---------{{x.timestamp}}</h4>
+      
+        {% endfor %}
+      </center>
+        {% endblock %}

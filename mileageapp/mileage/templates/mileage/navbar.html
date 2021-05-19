@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Vamos the Mileage App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only"></span></a>
+         
+        </li>
+       
+        {% if request.user.is_authenticated %}
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'create' %}">Add Miles <span class="sr-only"></span></a>
+         
+        </li>
+       
+        <li class="nav-item active"></li>
+          <a class="nav-link" href="{% url 'logout' %}">Logout <span class="sr-only"></span></a>
+        </li>
+        {% else %}
+        <a class="nav-link" href="{% url 'login' %}">Login <span class="sr-only"></span></a>
+        <a class="nav-link" href="{% url 'signup' %}">Signup <span class="sr-only"></span></a>
+       
+          {% endif %}
+          <li> <a class="nav-link" href="">The Free Mileage App<span class="sr-only"></span></a></li>
+      
+       
+      </ul>
+     
+    </div>
+  </nav>
